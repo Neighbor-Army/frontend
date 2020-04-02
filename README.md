@@ -1,45 +1,44 @@
-# Getting Started
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Clone the repo
+## Available Scripts
 
-```bash
-git clone https://github.com/Neighbor-Army/help-with-covid
-```
+In the project directory, you can run:
 
-## Environment Variables
+### `yarn start`
 
--   Ask for an invitation to the `#engineering-data` channel in Slack and find the `.env` file.
--   Check the `.env.example` file in the repo as reference
--   Add your `.env` file to the root directory of the repo
+Runs the app in the development mode.<br />
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-## Installation
+The page will reload if you make edits.<br />
+You will also see any lint errors in the console.
 
-```bash
-yarn install
-```
+### `yarn test`
 
-This will install the dependencies for both the front-end & backend.
+Launches the test runner in the interactive watch mode.<br />
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-## Run the Servers
+### `yarn build`
 
-```bash
-yarn install && yarn dev:all
-```
+Builds the app for production to the `build` folder.<br />
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-`yarn dev:all` will start both the front-end & back-end server.
+The build is minified and the filenames include the hashes.<br />
+Your app is ready to be deployed!
 
-### Start only Frontend Server
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-`yarn dev` will start just the frontend server
+### `yarn eject`
 
-### Start the Backend Server
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-The backend is broken up into two parts. There is the firebase functions which are serverless functions that allow us to deploy our own APIs. Then there's OnFleet which is our task handling system.
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-`cd functions && yarn serve` will start just the backend server.
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-## Architecture
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-![Architecture 2](https://raw.githubusercontent.com/neighbor-army/help-with-covid/develop/docs/images/architecture-2.png)
+## Learn More
 
-![Architecture 1](https://raw.githubusercontent.com/neighbor-army/help-with-covid/develop/docs/images/architecture-1.png)
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
