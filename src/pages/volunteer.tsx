@@ -46,7 +46,7 @@ const VolunteerPage: React.FC<RouteComponentProps> = ({ history }) => {
     return (
         <Layout>
             <Helmet>
-                <title>Home</title>
+                <title>Volunteer</title>
             </Helmet>
             <main
                 css={css`
@@ -149,12 +149,6 @@ const VolunteerPage: React.FC<RouteComponentProps> = ({ history }) => {
             </main>
         </Layout>
     )
-}
-
-export async function getStaticProps() {
-    return {
-        props: { title: "Volunteer" }
-    }
 }
 
 export default VolunteerPage
