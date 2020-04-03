@@ -11,11 +11,13 @@
         "@types/node": "^13.11.0",
         "@types/react": "^16.9.32",
         "@types/react-dom": "^16.9.6",
+        "@types/react-helmet": "^5.0.15",
         "customize-cra": "^0.9.1",
         "emotion-theming": "^10.0.27",
         "react": "^16.13.1",
         "react-app-rewired": "^2.1.5",
         "react-dom": "^16.13.1",
+        "react-helmet": "^5.2.1",
         "react-scripts": "3.4.1",
         "typescript": "~3.8.3"
     },
