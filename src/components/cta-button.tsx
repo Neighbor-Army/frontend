@@ -1,8 +1,12 @@
 import React from "react"
 import { css } from "@emotion/core"
 
-interface CtaButtonProps {
-    onClick: () => void
+interface CtaButtonProps
+    extends React.DetailedHTMLProps<
+        React.ButtonHTMLAttributes<HTMLButtonElement>,
+        HTMLButtonElement
+    > {
+    onClick?: () => void
     isSecondaryBtn?: boolean
 }
 
