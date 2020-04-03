@@ -5,6 +5,7 @@ import IndexPage from "./pages/index"
 import VolunteerPage from "./pages/volunteer"
 import VolunteerSuccessPage from "./pages/volunteer-success"
 import LoginPage from "./pages/login"
+import RequestHelpPage from "./pages/contact"
 
 const App = () => {
     return (
@@ -13,6 +14,7 @@ const App = () => {
             <Route path="/volunteer" component={VolunteerPage} />
             <Route path="/volunteer-success" component={VolunteerSuccessPage} />
             <Route path="/login" component={LoginPage} />
+            <Route path="/contact" component={RequestHelpPage} />
         </Switch>
     )
 }
