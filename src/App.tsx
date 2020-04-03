@@ -1,15 +1,13 @@
 import React from "react"
-import { Helmet } from "react-helmet"
+import { Route, Switch } from "react-router-dom"
 
-import Layout from "./components/layout"
+import IndexPage from "./pages/index"
 
-function App() {
+const App = () => {
     return (
-        <Layout>
-            <Helmet>
-                <title>Home</title>
-            </Helmet>
-        </Layout>
+        <Switch>
+            <Route exact path="/" component={IndexPage} />
+        </Switch>
     )
 }
 
