@@ -2,6 +2,8 @@ import React from "react"
 import { css } from "@emotion/core"
 import { Helmet } from "react-helmet"
 
+import Header from "./header"
+
 const Layout: React.FC = ({ children }) => {
     return (
         <>
@@ -9,6 +11,7 @@ const Layout: React.FC = ({ children }) => {
                 defaultTitle="Neighbor Army"
                 titleTemplate="%s 🚁 Neighbor Army"
             />
+            <Header />
             <div
                 css={css`
                     display: flex;
