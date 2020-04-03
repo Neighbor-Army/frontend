@@ -38,7 +38,7 @@ const LoginPage: React.FC<RouteComponentProps> = ({ history }) => {
     return (
         <Layout>
             <Helmet>
-                <title>Volunteer</title>
+                <title>Login</title>
             </Helmet>
             <main
                 css={css`
