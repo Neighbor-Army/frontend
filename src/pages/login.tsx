@@ -3,11 +3,12 @@ import { useForm, OnSubmit } from "react-hook-form"
 import { RouteComponentProps } from "react-router-dom"
 import { css } from "@emotion/core"
 import { Helmet } from "react-helmet"
+import firebase from "firebase"
 
+import { firebaseApp, useSession } from "../hooks/firebase-auth"
 import CtaButton from "../components/cta-button"
 import FormField from "../components/form-field"
 import Layout from "../components/layout"
-import { firebaseApp, useSession } from "../hooks/firebase-auth"
 
 const LoginPage: React.FC<RouteComponentProps> = ({ history }) => {
     const currentUser = useSession()
@@ -30,6 +31,9 @@ const LoginPage: React.FC<RouteComponentProps> = ({ history }) => {
         setIsSubmitting(true)
         setServerError("")
         try {
+            await firebaseApp
+                .auth()
+                .setPersistence(firebase.auth.Auth.Persistence.LOCAL)
             await firebaseApp.auth().signInWithEmailAndPassword(email, password)
         } catch (error) {
             setServerError("Invalid email and/or password. Please try again.")
