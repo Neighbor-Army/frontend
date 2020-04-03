@@ -17,6 +17,7 @@
         "axios": "^0.19.2",
         "customize-cra": "^0.9.1",
         "emotion-theming": "^10.0.27",
+        "firebase": "^7.13.2",
         "react": "^16.13.1",
         "react-app-rewired": "^2.1.5",
         "react-device-detect": "^1.11.14",
