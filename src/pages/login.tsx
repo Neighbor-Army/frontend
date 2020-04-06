@@ -1,19 +1,28 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { useForm, OnSubmit } from "react-hook-form"
 import { RouteComponentProps } from "react-router-dom"
 import { css } from "@emotion/core"
 import { Helmet } from "react-helmet"
+import firebase from "firebase"
 
+import { firebaseApp, useSession } from "../hooks/firebase-auth"
 import CtaButton from "../components/cta-button"
 import FormField from "../components/form-field"
 import Layout from "../components/layout"
 
 const LoginPage: React.FC<RouteComponentProps> = ({ history }) => {
+    const currentUser = useSession()
     const [isSubmitting, setIsSubmitting] = useState(false)
     const [serverError, setServerError] = useState("")
     const { register, handleSubmit, errors } = useForm({
         mode: "onBlur"
     })
+
+    useEffect(() => {
+        if (currentUser) {
+            history.push("/dashboard")
+        }
+    }, [currentUser, history])
 
     const onSubmit: OnSubmit<Record<string, any>> = async ({
         email,
@@ -22,23 +31,21 @@ const LoginPage: React.FC<RouteComponentProps> = ({ history }) => {
         setIsSubmitting(true)
         setServerError("")
         try {
-            if (email !== "hi@neighborarmy.com") {
-                const err = new Error("testing the failure!")
-
-                throw err
-            }
-            console.log("Logging in...", email, password)
-            history.push("/dashboard")
-        } catch (err) {
-            setIsSubmitting(false)
+            await firebaseApp
+                .auth()
+                .setPersistence(firebase.auth.Auth.Persistence.LOCAL)
+            await firebaseApp.auth().signInWithEmailAndPassword(email, password)
+        } catch (error) {
             setServerError("Invalid email and/or password. Please try again.")
+        } finally {
+            setIsSubmitting(false)
         }
     }
 
     return (
         <Layout>
             <Helmet>
-                <title>Volunteer</title>
+                <title>Login</title>
             </Helmet>
             <main
                 css={css`
@@ -93,7 +100,7 @@ const LoginPage: React.FC<RouteComponentProps> = ({ history }) => {
                             isSubmitting || Object.keys(errors).length > 0
                         }
                     >
-                        {isSubmitting ? "One sec..." : "Sign Up"}
+                        {isSubmitting ? "One sec..." : "Sign In"}
                     </CtaButton>
                 </form>
             </main>
